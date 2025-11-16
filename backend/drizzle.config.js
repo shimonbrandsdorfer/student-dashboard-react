@@ -1,9 +1,10 @@
-// drizzle.config.ts
-export default {
-  schema: './drizzle/schema.ts',         // path to your schema file
-  out: './drizzle/migrations',           // where migration files go
-  driver: 'pg',                          // or 'mysql', 'sqlite'
+// drizzle.config.js
+module.exports = {
+  schema: './drizzle/schema.js',         // or .ts if you're using TypeScript
+  out: './drizzle/migrations',
+  dialect: 'postgresql',                 // ✅ Required
+  driver: 'pg',                          // ✅ Required for Node.js projects
   dbCredentials: {
-    connectionString: process.env.DATABASE_URL
+    connectionString: process.env.DATABASE_URL,
   },
 };
