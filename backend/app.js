@@ -28,7 +28,7 @@ app.use((req, res, next) => {
     
 
     try {
-        console.log(req.cookies,'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj' )
+       
         const token = req.cookies.authToken;
 
     if (!token) {
