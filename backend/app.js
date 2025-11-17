@@ -4,6 +4,7 @@ import ApiRouter from './routes/api.js';
 import AuthRouter from './routes/auth.js'
 import SwaggerUIExpress from 'swagger-ui-express';
 import fs from 'fs';
+import cookieParser from 'cookie-parser';
 
 const fileContent = fs.readFileSync('apidoc.json', 'utf-8');
 const swaggerDoc = JSON.parse(fileContent);
@@ -14,6 +15,7 @@ const PORT = process.env.PORT;
 
 const app = express();
 
+app.use(cookieParser());
 app.use(express.json());
 
 app.use('/api-docs', SwaggerUIExpress.serve, SwaggerUIExpress.setup(swaggerDoc));
@@ -22,7 +24,12 @@ app.use('/api-docs', SwaggerUIExpress.serve, SwaggerUIExpress.setup(swaggerDoc))
 
 /* this route checks if the user is logged in */
 app.use((req, res, next) => {
-    const token = req.cookies.authToken;
+    
+    
+
+    try {
+       
+        const token = req.cookies.authToken;
 
     if (!token) {
        
@@ -31,8 +38,6 @@ app.use((req, res, next) => {
 
         return res.status(401).json({ message: 'Not authenticated.', url: url });
     }
-
-    try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.user = decoded; // { userId, email }
         //console.log('Decoded token:', decoded);
