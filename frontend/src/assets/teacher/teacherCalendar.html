@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Viewpoint Academy - Calendar</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06B6D4",
+                        "background-light": "#F3F4F6",
+                        "background-dark": "#111827",
+                        "charcoal": "#111827",
+                        "cyan": "#06B6D4",
+                        "magenta": "#EC4899",
+                        "light-gray": "#F3F4F6"
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-charcoal dark:text-light-gray">
+<div class="flex h-screen w-full">
+<!-- Left Sidebar -->
+<aside class="w-72 flex-shrink-0 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/50 p-6 flex flex-col">
+<div class="flex items-center gap-3 mb-8">
+<div class="size-8 text-cyan">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold text-charcoal dark:text-white">Viewpoint Academy</h1>
+</div>
+<button class="flex w-full items-center justify-center gap-2 rounded-lg bg-cyan h-12 text-white text-sm font-bold shadow-sm hover:bg-cyan/90 transition-colors">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Create Event</span>
+</button>
+<div class="mt-8 flex flex-col gap-6">
+<div>
+<label class="text-sm font-medium text-gray-600 dark:text-gray-400" for="class-filter">Class</label>
+<select class="mt-2 block w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-800 shadow-sm focus:border-cyan focus:ring-cyan" id="class-filter">
+<option>All Classes</option>
+<option>History 101</option>
+<option>Algebra II</option>
+<option>Creative Writing</option>
+</select>
+</div>
+<div>
+<label class="text-sm font-medium text-gray-600 dark:text-gray-400" for="event-filter">Event Type</label>
+<select class="mt-2 block w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-800 shadow-sm focus:border-cyan focus:ring-cyan" id="event-filter">
+<option>All Events</option>
+<option>Assignment</option>
+<option>Exam</option>
+<option>Holiday</option>
+</select>
+</div>
+<label class="flex items-center justify-between cursor-pointer" for="hebrew-toggle">
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Show Hebrew Dates</span>
+<div class="relative">
+<input class="sr-only peer" id="hebrew-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan"></div>
+</div>
+</label>
+</div>
+<!-- Mini Calendar -->
+<div class="mt-8">
+<div class="flex items-center justify-between p-1">
+<button class="flex size-8 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<p class="text-sm font-bold text-center">October 2024</p>
+<button class="flex size-8 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7 text-center text-xs text-gray-500 dark:text-gray-400 mt-2">
+<p class="h-8 flex items-center justify-center">S</p>
+<p class="h-8 flex items-center justify-center">M</p>
+<p class="h-8 flex items-center justify-center">T</p>
+<p class="h-8 flex items-center justify-center">W</p>
+<p class="h-8 flex items-center justify-center">T</p>
+<p class="h-8 flex items-center justify-center">F</p>
+<p class="h-8 flex items-center justify-center">S</p>
+<div class="col-start-3 h-8 flex items-center justify-center">1</div>
+<div class="h-8 flex items-center justify-center">2</div>
+<div class="h-8 flex items-center justify-center">3</div>
+<div class="h-8 flex items-center justify-center">4</div>
+<div class="h-8 flex items-center justify-center">5</div>
+<div class="h-8 flex items-center justify-center">6</div>
+<div class="h-8 flex items-center justify-center">7</div>
+<div class="h-8 flex items-center justify-center">8</div>
+<div class="h-8 flex items-center justify-center text-white bg-cyan rounded-full">9</div>
+<div class="h-8 flex items-center justify-center">10</div>
+<div class="h-8 flex items-center justify-center">11</div>
+<div class="h-8 flex items-center justify-center">12</div>
+<div class="h-8 flex items-center justify-center">13</div>
+<div class="h-8 flex items-center justify-center">14</div>
+<div class="h-8 flex items-center justify-center">15</div>
+<div class="h-8 flex items-center justify-center">16</div>
+<div class="h-8 flex items-center justify-center">17</div>
+<div class="h-8 flex items-center justify-center">18</div>
+<div class="h-8 flex items-center justify-center">19</div>
+<div class="h-8 flex items-center justify-center">20</div>
+<div class="h-8 flex items-center justify-center">21</div>
+<div class="h-8 flex items-center justify-center">22</div>
+<div class="h-8 flex items-center justify-center">23</div>
+<div class="h-8 flex items-center justify-center">24</div>
+<div class="h-8 flex items-center justify-center">25</div>
+<div class="h-8 flex items-center justify-center">26</div>
+<div class="h-8 flex items-center justify-center">27</div>
+<div class="h-8 flex items-center justify-center">28</div>
+<div class="h-8 flex items-center justify-center">29</div>
+<div class="h-8 flex items-center justify-center">30</div>
+<div class="h-8 flex items-center justify-center">31</div>
+</div>
+</div>
+<div class="mt-auto flex items-center gap-4 p-2 rounded-lg hover:bg-light-gray dark:hover:bg-gray-800">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEN4a3bkE0GE2LzV2njugigFzGEhoV7CEaO-KEwTPoSFkAfc3VqyZRVSWjTFFj7voGQgs2SJI3hjGspUer7qBIr1fUFN7ddMFBtpFXFzoMq0pjwS2kpSmtf4aXYII4O_SORdOrdxaYqkAM2MJ-_ceQlOgMyU0NSZ9rT1qwtue3mghPNZRPUd7I0Vo1Rfb7UKr4xYgbo4kIgkjPBSDDsSBoUlVe2uBBDgeIhg0-oBMX3LVLOMyC2Wm3cZl-IsMqWouSVEHMOyM6olQ");'></div>
+<div class="flex flex-col">
+<p class="text-sm font-semibold text-charcoal dark:text-white">Jane Doe</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Teacher</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-gray-500">logout</span>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-4">
+<h1 class="text-3xl font-bold text-charcoal dark:text-white">October 2024</h1>
+<div class="flex items-center gap-1">
+<button class="flex size-9 items-center justify-center rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-xl">chevron_left</span>
+</button>
+<button class="flex size-9 items-center justify-center rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</button>
+</div>
+<button class="px-4 h-9 flex items-center justify-center rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-sm font-semibold shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700">Today</button>
+</div>
+<div class="flex h-10 items-center justify-center rounded-lg bg-white dark:bg-gray-900/50 p-1 border border-gray-200 dark:border-gray-700 shadow-sm">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-4 has-[:checked]:bg-cyan has-[:checked]:text-white text-charcoal dark:text-gray-300 dark:has-[:checked]:text-white text-sm font-medium transition-colors">
+<span class="truncate">Month</span>
+<input checked="" class="invisible w-0" name="view-toggle" type="radio" value="Month"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-4 has-[:checked]:bg-cyan has-[:checked]:text-white text-charcoal dark:text-gray-300 dark:has-[:checked]:text-white text-sm font-medium transition-colors">
+<span class="truncate">Week</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="Week"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-4 has-[:checked]:bg-cyan has-[:checked]:text-white text-charcoal dark:text-gray-300 dark:has-[:checked]:text-white text-sm font-medium transition-colors">
+<span class="truncate">Day</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="Day"/>
+</label>
+</div>
+</div>
+<!-- Calendar Grid -->
+<div class="grid grid-cols-7 grid-rows-5 h-[calc(100%-80px)] gap-px bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm">
+<!-- Header -->
+<div class="text-center py-2 text-sm font-semibold bg-white dark:bg-gray-800">Sun</div>
+<div class="text-center py-2 text-sm font-semibold bg-white dark:bg-gray-800">Mon</div>
+<div class="text-center py-2 text-sm font-semibold bg-white dark:bg-gray-800">Tue</div>
+<div class="text-center py-2 text-sm font-semibold bg-white dark:bg-gray-800">Wed</div>
+<div class="text-center py-2 text-sm font-semibold bg-white dark:bg-gray-800">Thu</div>
+<div class="text-center py-2 text-sm font-semibold bg-white dark:bg-gray-800">Fri</div>
+<div class="text-center py-2 text-sm font-semibold bg-white dark:bg-gray-800">Sat</div>
+<!-- Days -->
+<div class="bg-gray-50 dark:bg-gray-800/50 p-2 text-gray-400 dark:text-gray-500"><span class="text-sm">29</span></div>
+<div class="bg-gray-50 dark:bg-gray-800/50 p-2 text-gray-400 dark:text-gray-500"><span class="text-sm">30</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">1</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">2</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">3</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">4</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">5</span></div>
+<div class="bg-white dark:bg-gray-900 p-2 flex flex-col gap-1.5"><span class="text-sm font-medium">6</span><button class="w-full text-left text-xs p-1.5 rounded-md bg-magenta/20 text-magenta-800 dark:bg-magenta/30 dark:text-magenta-200 hover:bg-magenta/30">History Project Due</button></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">7</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">8</span></div>
+<div class="bg-white dark:bg-gray-900 p-2 flex flex-col gap-1.5"><span class="text-sm font-medium">9</span><button class="w-full text-left text-xs p-1.5 rounded-md bg-cyan/20 text-cyan-800 dark:bg-cyan/30 dark:text-cyan-200 hover:bg-cyan/30">Math Quiz Ch. 4</button></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">10</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">11</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">12</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">13</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">14</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">15</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">16</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">17</span></div>
+<div class="bg-white dark:bg-gray-900 p-2 flex flex-col gap-1.5"><span class="text-sm font-medium">18</span><button class="w-full text-left text-xs p-1.5 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300">Staff Meeting</button></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">19</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">20</span></div>
+<div class="bg-white dark:bg-gray-900 p-2 flex flex-col gap-1.5"><span class="text-sm font-medium">21</span><button class="w-full text-left text-xs p-1.5 rounded-md bg-magenta/20 text-magenta-800 dark:bg-magenta/30 dark:text-magenta-200 hover:bg-magenta/30">Parent-Teacher Conf.</button></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">22</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">23</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">24</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">25</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">26</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">27</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">28</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">29</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">30</span></div>
+<div class="bg-white dark:bg-gray-900 p-2"><span class="text-sm font-medium">31</span></div>
+<div class="bg-gray-50 dark:bg-gray-800/50 p-2 text-gray-400 dark:text-gray-500"><span class="text-sm">1</span></div>
+<div class="bg-gray-50 dark:bg-gray-800/50 p-2 text-gray-400 dark:text-gray-500"><span class="text-sm">2</span></div>
+</div>
+</main>
+<!-- Right Sidebar -->
+<aside class="w-80 flex-shrink-0 border-l border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/50 p-6 flex flex-col gap-6">
+<h2 class="text-xl font-bold text-charcoal dark:text-white">Upcoming Events</h2>
+<div class="flex flex-col gap-4">
+<div class="p-4 rounded-lg bg-light-gray dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700">
+<p class="font-semibold text-charcoal dark:text-white">Math Quiz Ch. 4</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Algebra II</p>
+<p class="text-sm text-cyan dark:text-cyan-400 mt-1">Today, 10:00 AM</p>
+</div>
+<div class="p-4 rounded-lg bg-light-gray dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700">
+<p class="font-semibold text-charcoal dark:text-white">Staff Meeting</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">School-wide</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Oct 18, 3:00 PM</p>
+</div>
+<div class="p-4 rounded-lg bg-light-gray dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700">
+<p class="font-semibold text-charcoal dark:text-white">Parent-Teacher Conferences</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">School-wide</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Oct 21, 8:00 AM - 4:00 PM</p>
+</div>
+<div class="p-4 rounded-lg bg-light-gray dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700">
+<p class="font-semibold text-charcoal dark:text-white">Final Essay Draft Due</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">Creative Writing</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Oct 25, 11:59 PM</p>
+</div>
+</div>
+<div class="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
+                 No more events this month.
+            </div>
+</aside>
+<!-- Event Detail Modal -->
+<div class="fixed inset-0 bg-black/40 dark:bg-black/60 flex items-center justify-center opacity-0 pointer-events-none transition-opacity" id="event-modal">
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-lg m-4">
+<div class="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold text-charcoal dark:text-white">Math Quiz Ch. 4</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Posted in Algebra II</p>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-cyan">calendar_today</span>
+<p class="text-sm font-medium">Wednesday, October 9, 2024</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-cyan">schedule</span>
+<p class="text-sm font-medium">10:00 AM - 10:50 AM</p>
+</div>
+<div>
+<h4 class="font-semibold mb-2">Instructions</h4>
+<p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            The quiz will cover all topics from Chapter 4, including linear equations and functions. Please bring a calculator. No notes will be permitted.
+                        </p>
+</div>
+<div>
+<h4 class="font-semibold mb-2">Attachments</h4>
+<div class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer">
+<span class="material-symbols-outlined text-magenta">description</span>
+<p class="text-sm font-medium text-charcoal dark:text-gray-200">Chapter_4_Review_Sheet.pdf</p>
+<span class="material-symbols-outlined ml-auto text-gray-500">download</span>
+</div>
+</div>
+</div>
+<div class="p-4 bg-light-gray dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-3 rounded-b-xl">
+<button class="px-4 py-2 text-sm font-bold rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">Close</button>
+<button class="px-4 py-2 text-sm font-bold rounded-lg bg-cyan text-white hover:bg-cyan/90">View Assignment</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>
