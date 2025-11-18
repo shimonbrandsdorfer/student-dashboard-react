@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Viewpoint Academy - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0f1624",
+              "background-light": "#f6f7f7",
+              "background-dark": "#15181d",
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        font-family: 'Lexend', 'Noto Sans', sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center bg-[#F3F4F6] p-4 group/design-root">
+<div class="w-full max-w-md">
+<header class="text-center mb-8">
+<h1 class="text-[#111827] text-3xl font-bold leading-tight tracking-tighter">Welcome to Viewpoint Academy</h1>
+</header>
+<main class="bg-white rounded-xl shadow-md overflow-hidden">
+<div class="border-b border-[#E5E7EB]">
+<div class="flex">
+<a class="flex flex-1 flex-col items-center justify-center border-b-[3px] border-b-[#06B6D4] py-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em] text-[#111827]">Login</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center border-b-[3px] border-b-transparent py-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em] text-[#6B7280]">Register</p>
+</a>
+</div>
+</div>
+<div class="p-8">
+<form class="flex flex-col gap-6">
+<div class="flex flex-col">
+<label class="flex flex-col">
+<p class="text-[#111827] text-base font-medium leading-normal pb-2">Email / Username</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-[#D1D5DB] bg-white h-12 px-4 placeholder:text-[#9CA3AF] text-[#111827] text-base font-normal leading-normal focus:border-[#06B6D4] focus:ring-2 focus:ring-[#06B6D4]/50" placeholder="just click login or Teacher login" value=""/>
+</label>
+</div>
+<div class="flex flex-col">
+<label class="flex flex-col">
+<p class="text-[#111827] text-base font-medium leading-normal pb-2">Password</p>
+<div class="relative flex w-full items-center">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-[#D1D5DB] bg-white h-12 pl-4 pr-12 placeholder:text-[#9CA3AF] text-[#111827] text-base font-normal leading-normal focus:border-[#06B6D4] focus:ring-2 focus:ring-[#06B6D4]/50" placeholder="just click login or Teacher login" type="password" value=""/>
+<button class="absolute right-0 flex h-full items-center justify-center px-4 text-[#6B7280]" type="button">
+<span class="material-symbols-outlined text-2xl">visibility</span>
+</button>
+</div>
+</label>
+<a class="mt-2 text-right text-sm font-normal leading-normal text-[#6B7280] underline hover:text-[#06B6D4]" href="#">Forgot Password?</a>
+</div>
+<a href="./dashboard.html" class="flex h-12 w-full items-center justify-center rounded-lg bg-[#111827] text-base font-bold text-white transition-colors hover:bg-[#1F2937]">Login</a>
+<div>
+click here for 
+<a class="mt-2 text-center text-sm font-normal leading-normal text-[#6B7880] underline hover:text-[#06B6D4]" href="./teacher/t-dashboard.html">Teacher login</a>
+
+
+</div>
+</form>
+<div class="relative my-8 flex items-center justify-center">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-[#E5E7EB]"></div>
+</div>
+<div class="relative bg-white px-4 text-sm text-[#6B7280]">or</div>
+</div>
+<button class="flex h-12 w-full items-center justify-center gap-3 rounded-lg border border-[#D1D5DB] bg-white text-base font-medium text-[#111827] transition-colors hover:bg-gray-50">
+<svg height="20" viewbox="0 0 48 48" width="20" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+<path d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" fill="#FFC107"></path>
+<path d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z" fill="#FF3D00"></path>
+<path d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.222,0-9.619-3.317-11.28-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z" fill="#4CAF50"></path>
+<path d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.574l6.19,5.238C41.31,34.128,44,28.228,44,20C44,22.659,43.862,21.35,43.611,20.083z" fill="#1976D2"></path>
+</svg>
+                        Continue with Google
+                    </button>
+</div>
+</main>
+</div>
+</div>
+</body></html>
