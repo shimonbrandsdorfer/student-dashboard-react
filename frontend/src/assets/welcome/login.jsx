@@ -101,7 +101,7 @@ console.error(event.target.username.value);
                             <form className="flex flex-col gap-6" onSubmit={(e) => handleLogin(e)}>
                                 <div className="flex flex-col">
                                     <label className="flex flex-col">
-                                        <p className="text-[#111827] text-base font-medium leading-normal pb-2">Email / Username</p>
+                                        <p className="text-[#111827] text-base font-medium leading-normal pb-2">Username</p>
                                         <input id="username" className="focus:outline-none form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-[#D1D5DB] bg-white h-12 px-4 py-2 placeholder:text-[#9CA3AF] text-[#111827] text-base font-normal leading-normal focus:border-[#06B6D4] focus:ring-2 focus:ring-[#06B6D4]/50" placeholder="Username" required/>
                                     </label>
                                 </div>

@@ -1,29 +1,10 @@
 
-                import { Sidebar } from "./sidebar";
-                import {MyCalendar} from './calendar'
+                import { Sidebar } from "../globalComponents/sidebar";
+                import {MyCalendar} from '../globalComponents/calendar'
 
 export function Calendar(){
 
 
-    /*  colors: {
-                        "[#111827]": "#111827",
-                        "[#06B6D4]": "#06B6D4",
-                        "[#EC4899]": "#EC4899",
-                        "[#F3F4F6]": "#F3F4F6",
-               
-                        "[#FFFFFF]": "#FFFFFF",
-                      
-                        "[#E5E7EB]": "#E5E7EB",
-                      
-                    },
-                    fontFamily: {
-                        "display": ["Roboto", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "8px",
-                        "lg": "12px",
-                        "xl": "16px",
-                        "full": "9999px" */
     return(
         <div className="font-display bg-[#F3F4F6]  text-[#111827] ">
     <div className="relative flex min-h-screen w-full">

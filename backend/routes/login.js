@@ -24,7 +24,7 @@ function setToken(user, res, jwt) {
         { expiresIn: SESSION_DURATION_SECONDS }
     );
 
-    res.cookie('authToken', token, {
+    res.cookie('viewPointAuthToken', token, {
         httpOnly: true,
         sameSite: 'none',
         path: '/',
