@@ -55,3 +55,6 @@ ALTER TABLE "assinment_submissions" ADD CONSTRAINT "assinment_submissions_user_i
 ALTER TABLE "assinment_submissions" ADD CONSTRAINT "assinment_submissions_assignment_id_assignments_id_fk" FOREIGN KEY ("assignment_id") REFERENCES "public"."assignments"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "assinment_submissions" ADD CONSTRAINT "assinment_submissions_graded_by_users_id_fk" FOREIGN KEY ("graded_by") REFERENCES "public"."users"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "logins" ADD CONSTRAINT "logins_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE no action ON UPDATE no action;
+
+ALTER TABLE "classes" ADD COLUMN "teacher_id" bigint NOT NULL;--> statement-breakpoint
+ALTER TABLE "classes" ADD CONSTRAINT "classes_teacher_id_users_id_fk" FOREIGN KEY ("teacher_id") REFERENCES "public"."users"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint

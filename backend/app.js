@@ -40,30 +40,30 @@ app.use('/authApi', loginRouter);
 
 
 /* this route checks if the user is logged in */
-app.use((req, res, next) => {
+// app.use((req, res, next) => {
     
     
 
-    try {
-       /*  console.log('token provided', req.cookies); */
-        const token = req.cookies?.authToken;
+//     try {
+//        /*  console.log('token provided', req.cookies); */
+//         const token = req.cookies?.authToken;
 
 //     if (!token) {
        
 //         let url = req.originalUrl;
 //         console.log('No token provided', url);
 
-        return res.status(401).json({ message: 'Not authenticated.', url: url });
-    }
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded; // { userId, email }
-        //console.log('Decoded token:', decoded);
-        next();
-    } catch (err) {
-        console.error('JWT verification failed:', err);
-        return res.status(403).json({ message: 'Invalid or expired token.' });
-    }
-});
+//         return res.status(401).json({ message: 'Not authenticated.', url: url });
+//     }
+//         const decoded = jwt.verify(token, process.env.JWT_SECRET);
+//         req.user = decoded; // { userId, email }
+//         //console.log('Decoded token:', decoded);
+//         next();
+//     } catch (err) {
+//         console.error('JWT verification failed:', err);
+//         return res.status(403).json({ message: 'Invalid or expired token.' });
+//     }
+// });
 
 
 /* all routs where the user needs to be logged in, needs to go below this line */
