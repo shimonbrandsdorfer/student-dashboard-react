@@ -27,12 +27,7 @@ app.use('/api-docs', SwaggerUIExpress.serve, SwaggerUIExpress.setup(swaggerDoc))
 
 
 
-/* use this lines to create fake passwordHash, you can change the password to whatever you want */
-/* import bcrypt from 'bcryptjs';
 
-const password = 'a';
-const passwordHash = await bcrypt.hash(password, 10);
-  console.log('passwordHash', passwordHash ) */
 
 
 app.use('/authApi', loginRouter);
