@@ -1,7 +1,11 @@
 
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useProjectInfo } from '../context';
 
 export function Page404() {
+const {loggedIn} = useProjectInfo();
+
   useEffect(()=>{
     document.body.classList.add('noLeftMargin');
      return () => {
@@ -11,7 +15,7 @@ export function Page404() {
   },[])
 
   return (<>
-
+{/*  "primary": "#135bec", '#07c0e1ff'/ */}
 
     <main className="font-display">
       <div className="relative flex min-h-screen w-full flex-col bg-light-gray dark:bg-background-dark group/design-root overflow-x-hidden">
@@ -28,9 +32,17 @@ export function Page404() {
                   Oops! It seems the page you were looking for has moved or doesn&#39;t exist.
                 </p>
               </div>
-              <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-cyan text-white text-sm font-bold leading-normal tracking-wide shadow-sm hover:bg-cyan/90 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan focus:ring-offset-2 dark:focus:ring-offset-background-dark">
+              {loggedIn ? 
+              <Link to='/dashboard' className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-[#06b6d4] text-white text-sm font-bold leading-normal tracking-wide shadow-sm hover:bg-[#07c0e1ff] transition-colors focus:outline-none focus:ring-2 focus:ring-cyan focus:ring-offset-2 dark:focus:ring-offset-background-dark">
                 <span className="truncate">Go to Dashboard</span>
-              </button>
+              </Link>
+              
+              :
+              <Link to='/' className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-[#06b6d4] text-white text-sm font-bold leading-normal tracking-wide shadow-sm hover:bg-[#07c0e1ff] transition-colors focus:outline-none focus:ring-2 focus:ring-cyan focus:ring-offset-2 dark:focus:ring-offset-background-dark">
+                <span className="truncate">Go Home</span>
+              </Link>
+              }
+              
             </div>
           </main>
         </div>

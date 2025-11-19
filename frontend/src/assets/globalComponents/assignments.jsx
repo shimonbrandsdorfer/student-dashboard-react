@@ -1,5 +1,8 @@
-
+import { useNavigate } from 'react-router-dom';
 import { Sidebar } from "./sidebar";
+import { fakeAssignments } from './fakeData/fakeAssignments';
+import {useProjectInfo} from '../context';
+import { Link } from 'react-router-dom';
 
 
 
@@ -8,39 +11,10 @@ import { Sidebar } from "./sidebar";
 
 export function Assignments() {
 
-    new Date("")
-    new Date("2021-08-29T18:45:00Z")
-    new Date("1994-01-03T03:12:00Z")
-    new Date("2032-11-18T14:30:00Z")
+    const navigate = useNavigate();
+    const {role} = useProjectInfo();
 
-    const fakeAssignments = [{
-        title: 'Algebra I - Chapter 5 Quiz',
-        dueDate: '2004-03-12T10:24:00Z',
-        submissions: 22,
-        submited: true,
-        grade: null
 
-    }, {
-        title: 'The Great Gatsby - Essay',
-        dueDate: '2024-08-29T18:45:00Z',
-        submissions: 15,
-        submited: false,
-        grade: null
-
-    }, {
-        title: 'Photosynthesis Lab Report',
-        dueDate: '2024-12-29T18:45:00Z',
-        submissions: 32,
-        submited: false,
-        grade: null
-
-    }, {
-        title: 'World War II Presentation',
-        dueDate: '2025-01-29T18:45:00Z',
-        submissions: 4,
-        submited: true,
-        grade: null
-    }];
     const students = 35;
 
     return (
@@ -55,9 +29,15 @@ export function Assignments() {
                     <main className="flex-1 p-8">
                         <div className="flex flex-col gap-6">
                             {/* PageHeading  */}
-                            <div className="flex flex-wrap items-center justify-between gap-4">
-                                <h1 className="text-[#111827]  text-3xl font-bold leading-tight">All Assignments</h1>
 
+                            <div class="flex flex-wrap items-center justify-between gap-4">
+                                <h1 className="text-primary dark:text-white text-3xl font-bold leading-tight">All Assignments</h1>
+                                {role === 'teacher' &&
+                                  <Link to='/new-assignment' className="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-10 px-4 bg-[#06B6D4] text-white text-sm font-bold leading-normal shadow-sm hover:bg-[#06B6D4]/90">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" /></svg>
+                                    <span className="truncate">Create New Assignment</span>
+                                </Link>}
+                              
                             </div>
                             {/* Filters Section  */}
                             <div className="flex flex-col gap-4">
@@ -71,7 +51,7 @@ export function Assignments() {
                                             </div>
                                             <input
                                                 className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-[#111827]  focus:outline-0 focus:ring-2 focus:ring-[#06B6D4]/50 border border-gray-300  bg-white  h-full placeholder:text-gray-500  px-4 text-base font-normal leading-normal"
-                                                placeholder="Search by assignment title..." value="" />
+                                                placeholder="Search by assignment title..." />
                                         </div>
                                     </label>
                                 </div>
@@ -107,18 +87,24 @@ export function Assignments() {
                                                 <th
                                                     className="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500  w-2/5">
                                                     Assignment Title</th>
-                                                <th
+                                               {role === 'student' &&
+                                               
+                                               <th
                                                     className="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500 ">
-                                                    Class Name</th>
+                                                    Grade</th>}
+                                                
                                                 <th
                                                     className="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500 ">
                                                     Due Date</th>
                                                 <th
                                                     className="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500 ">
                                                     Submissions</th>
-                                                <th
+                                                    {role === 'student' &&
+                                                      <th
                                                     className="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500 ">
                                                     Status</th>
+                                                    }
+                                              
                                                 <th
                                                     className="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500  text-right">
                                                     Actions</th>
@@ -129,43 +115,48 @@ export function Assignments() {
                                             {fakeAssignments.map((assignment, index) => {
                                                 const date = new Date(assignment.dueDate);
 
-const weekday = date.toLocaleString("en-US", { weekday: "short" });
-const month = date.toLocaleString("en-US", { month: "short" });
-const year = date.getFullYear();
+                                                const weekday = date.toLocaleString("en-US", { weekday: "short" });
+                                                const month = date.toLocaleString("en-US", { month: "short" });
+                                                const year = date.getFullYear();
 
-const formatted = `${weekday}, ${month} ${year}`;
-                                                
-                                                return(
+                                                const formatted = `${weekday}, ${month} ${year}`;
 
-                                                <tr key={index} className="hover:bg-gray-50 ">
-                                                    <td
-                                                        className="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#111827] ">
-                                                    {assignment.title}
-                                                    </td>
-                                                    <td
-                                                        className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
-                                                        Algebra 101</td>
-                                                    <td
-                                                        className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
-                                                        {formatted}
+                                                return (
+
+                                                    <tr key={index} className="hover:bg-gray-50 " onClick={() => navigate(`/eachAssignment/${assignment.id}`)}>
+                                                        <td
+                                                            className="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#111827] ">
+                                                            {assignment.title}
                                                         </td>
-                                                    <td
-                                                        className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
-                                                        {assignment.submissions}/{students} Submitted</td>
-                                                    <td className="px-6 py-4 whitespace-nowrap text-sm">
-                                                        <span
-                                                            className={` ${assignment.submited? 'bg-cyan-100 ': ''}inline-flex items-center rounded-full   px-2.5 py-0.5 text-xs font-medium text-cyan-800 `}>
-                                                                {assignment.submited? 'Submited':'Not Submited'}
-                                                                </span>
-                                                    </td>
-                                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-right">
-                                                        <button
-                                                            className="text-gray-500  hover:text-[#111827] e">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#6B7280"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" /></svg>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            )})}
+                                                          {role === 'student' &&
+                                                        <td
+                                                            className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
+                                                            {assignment.grade}</td>
+                                            }
+                                                        <td
+                                                            className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
+                                                            {formatted}
+                                                        </td>
+                                                        <td
+                                                            className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 ">
+                                                            {assignment.submissions}/{students} Submitted</td>
+                                                             {role === 'student' &&
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm">
+                                                            <span
+                                                                className={` ${assignment.submited ? 'bg-cyan-100 ' : ''}inline-flex items-center rounded-full   px-2.5 py-0.5 text-xs font-medium text-cyan-800 `}>
+                                                                {assignment.submited ? 'Submited' : 'Not Submited'}
+                                                            </span>
+                                                        </td>
+                                            }
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-right">
+                                                            <button
+                                                                className="text-gray-500  hover:text-[#111827] e">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#6B7280"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" /></svg>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            })}
 
 
                                         </tbody>

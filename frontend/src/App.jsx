@@ -12,8 +12,8 @@ import { TeacherAnnouncements } from './assets/teacher/teacherAnnouncements';
 import { TeacherCalendar } from './assets/teacher/teacherCalendar';
 import { Calendar } from './assets/student/calendarPage';
 
-import { Assignments } from './assets/student/assignments';
-import { StudentAssSubmit } from './assets/student/submit_assignments';
+import { Assignments } from './assets/globalComponents/assignments';
+import { StudentAssSubmit } from './assets/globalComponents/submit_assignments';
 
 import {Announcements} from './assets/student/announcements';
 import { ProjectContext } from './assets/context';
@@ -25,7 +25,7 @@ function App() {
 
   const API_URL= 'http://localhost:3000';
 
-  const [role, setRole] = useState('user');
+  const [role, setRole] = useState('student');
 const [loggedIn, setLoggedIn] = useState(false);
 
 useEffect(()=>{
@@ -45,7 +45,7 @@ useEffect(()=>{
             });
               if(response.status === 401){
                  setLoggedIn(false);
-                 setRole('user');
+                 setRole('student');
                  const data = await response.json();
                   console.log('1',data);
               }
@@ -71,7 +71,7 @@ useEffect(()=>{
 
   return (
     <>
- <ProjectContext.Provider value={{API_URL, setRole, setLoggedIn}}>
+ <ProjectContext.Provider value={{API_URL, setRole, setLoggedIn, loggedIn, role}}>
 
       <Routes>
 
@@ -82,16 +82,17 @@ useEffect(()=>{
           <>
          
 
-            <Route path="assignment" element={
-              role === 'admin' ?
-                <CreateNewAssignment />
+            <Route path="assignments" element={
+              role === 'teacher' ?
+             
+                <Assignments />
                 :
                 <Assignments />
 
             } />
 
             <Route path="dashboard" element={
-               role === 'admin' ?
+               role === 'teacher' ?
                 <TeacherDashboard />
                 :
                 <StudentDashboard />
@@ -101,26 +102,30 @@ useEffect(()=>{
           
 
             <Route path="calendar" element={
-            role === 'admin' ?
+            role === 'teacher' ?
                 <TeacherCalendar />
                 :
                 <Calendar />
 
             } />
              <Route path="announcements" element={
-               role === 'admin' ?
+               role === 'teacher' ?
               <TeacherAnnouncements />
               :
               <Announcements />
              }/>
      
-            { role === 'admin' ? <>
+            { role === 'teacher' && <>
               <Route path="grade" element={<GradeAssignments />} />
+              <Route path="new-assignment" element={<CreateNewAssignment />} />
+              
+                
              
               </>
-              :
-                <Route path="submit_assignment" element={<StudentAssSubmit />} />
+              
+              
             }
+              <Route path="eachAssignment/:id" element={<StudentAssSubmit />} />
               
 
           </>

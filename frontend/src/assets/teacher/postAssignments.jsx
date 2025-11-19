@@ -1,69 +1,28 @@
+import {Sidebar} from '../globalComponents/sidebar';
+
 export function CreateNewAssignment (){
+
+ 
 
   return(<>
 
-  <body className="font-sans bg-light-gray dark:bg-charcoal-900 text-charcoal">
+  <div className="font-sans bg-[#F3F4F6] dark:bg-[#111827]-900 text-[#111827]">
   <div className="flex min-h-screen">
-    <aside
-      className="sticky top-0 h-screen bg-white dark:bg-primary/20 p-4 flex flex-col w-64 border-r border-gray-200 dark:border-gray-700">
-      <div className="flex flex-col gap-4">
-     <a href="../user-profile.html" className="flex items-center gap-3 p-2">
-          <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-            data-alt="Teacher's profile picture"
-            style={{backgroundImage: 'url("../3.jpg")'}}>
-          </div>
-          <div className="flex flex-col">
-            <h1 className="text-[#111827] dark:text-white text-base font-medium leading-normal">Abraham Perl</h1>
-            <p className="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Teacher</p>
-          </div>
-        </a>
-        <nav className="flex flex-col gap-2 mt-4">
-          <a  className="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/30" href="./t-dashboard.html">
-            <span className="material-symbols-outlined text-[#111827] dark:text-white"
-        style={{ fontVariationSettings: "'FILL' 1, 'wght' 400" }}>
- </span>
-            <p className="text-[#111827] dark:text-white text-sm font-medium leading-normal">Dashboard</p>
-          </a>
-          <a className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-primary/20" href="./t-ass.html">
-            <span className="material-symbols-outlined text-[#111827] dark:text-white">assignment</span>
-            <p className="text-[#111827] dark:text-white text-sm font-medium leading-normal">Assignments</p>
-          </a>
-          <a className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-primary/20" href="./t-submit.html">
-            <span className="material-symbols-outlined text-[#111827] dark:text-white">move_to_inbox</span>
-            <p className="text-[#111827] dark:text-white text-sm font-medium leading-normal">Submissions</p>
-          </a>
-         
-          <a className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-primary/20" href="./Announcements.html">
-            <span className="material-symbols-outlined text-[#111827] dark:text-white">campaign</span>
-            <p className="text-[#111827] dark:text-white text-sm font-medium leading-normal">Announcements</p>
-          </a>
-        </nav>
-      </div>
-      <div className="flex flex-col gap-1 mt-auto">
-        <a className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-primary/20" href="#">
-          <span className="material-symbols-outlined text-[#111827] dark:text-white">settings</span>
-          <p className="text-[#111827] dark:text-white text-sm font-medium leading-normal">Settings</p>
-        </a>
-        <a className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-primary/20" href="#">
-          <span className="material-symbols-outlined text-[#111827] dark:text-white">help</span>
-          <p className="text-[#111827] dark:text-white text-sm font-medium leading-normal">Help</p>
-        </a>
-      </div>
-    </aside>
+ <Sidebar />
     <main className="flex-1 p-8 overflow-y-auto">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-charcoal">Create New Assignment</h1>
+          <h1 className="text-3xl font-bold text-[#111827]">Create New Assignment</h1>
         </div>
         <div className="space-y-6">
           <section className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h2 className="text-xl font-semibold text-charcoal mb-6">Assignment Details</h2>
+            <h2 className="text-xl font-semibold text-[#111827] mb-6">Assignment Details</h2>
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="assignment-title">Assignment
                   Title</label>
                 <input
-                  className="form-input block w-full rounded-lg border-gray-300 shadow-sm focus:border-cyan focus:ring-cyan"
+                  className="form-input block w-full rounded-lg border-gray-300 shadow-sm focus:border-[#06B6D4] focus:ring-[#06B6D4]"
                   id="assignment-title" placeholder="e.g., The Great Gatsby - Chapter 1 Analysis" type="text" />
               </div>
               <div>
@@ -75,21 +34,29 @@ export function CreateNewAssignment (){
                       <div className="flex flex-wrap items-center divide-gray-200 sm:divide-x">
                         <div className="flex items-center space-x-1 sm:pr-4">
                           <button className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100"
-                            type="button"><span className="material-symbols-outlined text-base">format_bold</span></button>
+                            type="button">
+                              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="16px" fill="#6b7280"><path d="M272-200v-560h221q65 0 120 40t55 111q0 51-23 78.5T602-491q25 11 55.5 41t30.5 90q0 89-65 124.5T501-200H272Zm121-112h104q48 0 58.5-24.5T566-372q0-11-10.5-35.5T494-432H393v120Zm0-228h93q33 0 48-17t15-38q0-24-17-39t-44-15h-95v109Z"/></svg>
+                            </button>
                           <button className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100"
-                            type="button"><span
-                              className="material-symbols-outlined text-base">format_italic</span></button>
+                            type="button">
+                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="16px" fill="#6b7280"><path d="M200-200v-100h160l120-360H320v-100h400v100H580L460-300h140v100H200Z"/></svg>
+                              </button>
                           <button className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100"
-                            type="button"><span
-                              className="material-symbols-outlined text-base">format_underlined</span></button>
+                            type="button">
+                              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="16px" fill="#6b7280"><path d="M200-120v-80h560v80H200Zm280-160q-101 0-157-63t-56-167v-330h103v336q0 56 28 91t82 35q54 0 82-35t28-91v-336h103v330q0 104-56 167t-157 63Z"/></svg>
+                              </button>
                           <button className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100"
-                            type="button"><span
-                              className="material-symbols-outlined text-base">format_list_bulleted</span></button>
+                            type="button">
+                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="16px" fill="#6b7280"><path d="M360-200v-80h480v80H360Zm0-240v-80h480v80H360Zm0-240v-80h480v80H360ZM200-160q-33 0-56.5-23.5T120-240q0-33 23.5-56.5T200-320q33 0 56.5 23.5T280-240q0 33-23.5 56.5T200-160Zm0-240q-33 0-56.5-23.5T120-480q0-33 23.5-56.5T200-560q33 0 56.5 23.5T280-480q0 33-23.5 56.5T200-400Zm0-240q-33 0-56.5-23.5T120-720q0-33 23.5-56.5T200-800q33 0 56.5 23.5T280-720q0 33-23.5 56.5T200-640Z"/></svg>
+                              </button>
                           <button className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100"
-                            type="button"><span
-                              className="material-symbols-outlined text-base">format_list_numbered</span></button>
+                            type="button">
+                   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="16px" fill="#6b7280"><path d="M120-80v-60h100v-30h-60v-60h60v-30H120v-60h120q17 0 28.5 11.5T280-280v40q0 17-11.5 28.5T240-200q17 0 28.5 11.5T280-160v40q0 17-11.5 28.5T240-80H120Zm0-280v-110q0-17 11.5-28.5T160-510h60v-30H120v-60h120q17 0 28.5 11.5T280-560v70q0 17-11.5 28.5T240-450h-60v30h100v60H120Zm60-280v-180h-60v-60h120v240h-60Zm180 440v-80h480v80H360Zm0-240v-80h480v80H360Zm0-240v-80h480v80H360Z"/></svg>
+                              </button>
                           <button className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100"
-                            type="button"><span className="material-symbols-outlined text-base">link</span></button>
+                            type="button">
+                              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="16px" fill="#6b7280"><path d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z"/></svg>
+                            </button>
                         </div>
                       </div>
                     </div>
@@ -105,34 +72,35 @@ export function CreateNewAssignment (){
             </div>
           </section>
           <section className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h2 className="text-xl font-semibold text-charcoal mb-6">Configuration</h2>
+            <h2 className="text-xl font-semibold text-[#111827] mb-6">Configuration</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="due-date">Due Date</label>
                 <input
-                  className="form-input block w-full rounded-lg border-gray-300 shadow-sm focus:border-cyan focus:ring-cyan"
+                  className="form-input block w-full rounded-lg border-gray-300 shadow-sm focus:border-[#06B6D4] focus:ring-[#06B6D4]"
                   id="due-date" type="datetime-local" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="points-possible">Points
                   Possible</label>
                 <input
-                  className="form-input block w-full rounded-lg border-gray-300 shadow-sm focus:border-cyan focus:ring-cyan"
+                  className="form-input block w-full rounded-lg border-gray-300 shadow-sm focus:border-[#06B6D4] focus:ring-[#06B6D4]"
                   id="points-possible" placeholder="100" type="number" />
               </div>
             </div>
           </section>
           <section className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h2 className="text-xl font-semibold text-charcoal mb-6">Attachments</h2>
+            <h2 className="text-xl font-semibold text-[#111827] mb-6">Attachments</h2>
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Supporting Materials</label>
                 <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg">
                   <div className="space-y-1 text-center">
-                    <span className="material-symbols-outlined text-5xl text-gray-400">cloud_upload</span>
+                   
+                 <svg className='mx-auto' xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#9ca3af"><path d="M260-160q-91 0-155.5-63T40-377q0-78 47-139t123-78q25-92 100-149t170-57q117 0 198.5 81.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H520q-33 0-56.5-23.5T440-240v-206l-64 62-56-56 160-160 160 160-56 56-64-62v206h220q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-80q0-83-58.5-141.5T480-720q-83 0-141.5 58.5T280-520h-20q-58 0-99 41t-41 99q0 58 41 99t99 41h100v80H260Zm220-280Z"/></svg>
                     <div className="flex text-sm text-gray-600">
                       <label
-                        className="relative cursor-pointer bg-white rounded-md font-medium text-cyan hover:text-cyan-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-cyan"
+                        className="relative cursor-pointer bg-white rounded-md font-medium text-[#06B6D4] hover:text-[#06B6D4]-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#06B6D4]"
                         htmlFor="file-upload">
                         <span>Upload a file</span>
                         <input className="sr-only" id="file-upload" name="file-upload" type="file" />
@@ -143,17 +111,7 @@ export function CreateNewAssignment (){
                   </div>
                 </div>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="rubric">Attach Rubric</label>
-                <select
-                  className="form-select block w-full rounded-lg border-gray-300 shadow-sm focus:border-cyan focus:ring-cyan"
-                  id="rubric">
-                  <option>Select a rubric...</option>
-                  <option>Essay Writing Rubric</option>
-                  <option>Presentation Skills Rubric</option>
-                  <option>-- Create New Rubric --</option>
-                </select>
-              </div>
+              
             </div>
           </section>
         </div>
@@ -163,12 +121,9 @@ export function CreateNewAssignment (){
             Delete Assignment
           </button>
           <div className="flex flex-col-reverse sm:flex-row items-center gap-4 w-full sm:w-auto">
+           
             <button
-              className="px-5 py-2.5 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-cyan focus:z-10 focus:ring-2 focus:ring-cyan w-full sm:w-auto">
-              Save as Draft
-            </button>
-            <button
-              className="px-5 py-2.5 text-sm font-medium text-white bg-cyan rounded-lg hover:bg-cyan-700 focus:ring-2 focus:ring-cyan-300 w-full sm:w-auto">
+              className="px-5 py-2.5 text-sm font-medium text-white  rounded-lg bg-[#06B6D4] focus:ring-2 focus:ring-[#06B6D4]-300 w-full sm:w-auto">
               Publish Assignment
             </button>
           </div>
@@ -177,7 +132,7 @@ export function CreateNewAssignment (){
     </main>
   </div>
 
-</body>
+</div>
   
   </>)
 }
