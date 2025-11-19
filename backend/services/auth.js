@@ -1,4 +1,4 @@
-import knexClient from "./db.js"
+import {knexClient} from "./db.js"
 import bcrypt from 'bcryptjs';
 
 export const createUser = async (user) => {
